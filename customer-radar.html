@@ -1,1 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>AKOLIS AI | Customer Radar</title>
+
+<meta name="description" content="Discover your next customer with AKOLIS AI Customer Radar.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070b12;
+  color:#fff;
+  min-height:100vh;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.header{
+  padding:20px;
+  border-bottom:1px solid #1d2633;
+  background:#0a0f18;
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#e4b83b;
+}
+
+.back{
+  color:#b9c0ca;
+  font-size:14px;
+}
+
+.hero{
+  max-width:950px;
+  margin:auto;
+  padding:70px 20px 35px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid #735e24;
+  border-radius:30px;
+  color:#e4b83b;
+  font-size:13px;
+  margin-bottom:20px;
+  background:#12100a;
+}
+
+h1{
+  font-size:clamp(38px,8vw,70px);
+  line-height:1.05;
+  margin-bottom:20px;
+}
+
+.highlight{
+  color:#e4b83b;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:#aeb6c2;
+  line-height:1.7;
+  font-size:17px;
+}
+
+.container{
+  max-width:720px;
+  margin:25px auto 80px;
+  padding:0 20px;
+}
+
+.card{
+  background:#0d141f;
+  border:1px solid #202b39;
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.card h2{
+  margin-bottom:8px;
+  font-size:25px;
+}
+
+.card > p{
+  color:#8994a2;
+  margin-bottom:25px;
+  line-height:1.5;
+}
+
+label{
+  display:block;
+  margin:18px 0 8px;
+  font-size:14px;
+  font-weight:700;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:15px;
+  border-radius:12px;
+  border:1px solid #2a3645;
+  background:#080d14;
+  color:white;
+  outline:none;
+  font-size:15px;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:#e4b83b;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.btn{
+  width:100%;
+  border:0;
+  margin-top:25px;
+  padding:17px;
+  border-radius:13px;
+  background:#e4b83b;
+  color:#090b0e;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+
+.loading{
+  display:none;
+  text-align:center;
+  padding:30px 10px;
+}
+
+.loader{
+  width:45px;
+  height:45px;
+  border:4px solid #27313d;
+  border-top-color:#e4b83b;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin:0 auto 18px;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.result{
+  display:none;
+}
+
+.score{
+  text-align:center;
+  padding:20px 0 30px;
+}
+
+.score-number{
+  font-size:70px;
+  font-weight:900;
+  color:#e4b83b;
+}
+
+.score small{
+  color:#9ba5b2;
+}
+
+.result-box{
+  background:#080d14;
+  border:1px solid #263241;
+  border-radius:15px;
+  padding:18px;
+  margin-top:15px;
+}
+
+.result-box h3{
+  margin-bottom:8px;
+}
+
+.result-box p{
+  color:#aeb6c2;
+  line-height:1.6;
+}
+
+.opportunity{
+  border-left:3px solid #e4b83b;
+  padding-left:15px;
+  margin-top:15px;
+}
+
+.cta{
+  margin-top:25px;
+  padding:22px;
+  border-radius:16px;
+  background:#15130b;
+  border:1px solid #5c4d22;
+  text-align:center;
+}
+
+.whatsapp{
+  display:inline-block;
+  margin-top:15px;
+  padding:14px 22px;
+  border-radius:10px;
+  background:#e4b83b;
+  color:#090b0e;
+  font-weight:800;
+}
+
+.footer{
+  text-align:center;
+  padding:30px 20px;
+  color:#687381;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="nav">
+    <div class="logo">AKOLIS <span>AI</span></div>
+    <a href="index.html" class="back">← AKOLIS FUSION</a>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="badge">🤖 AI CUSTOMER RADAR</div>
+
+  <h1>
+    Discover Your
+    <span class="highlight">Next Customer.</span>
+  </h1>
+
+  <p>
+    Tell AKOLIS AI about your business and discover the types of
+    customers, opportunities and marketing moves you should focus on next.
+  </p>
+
+</section>
+
+<main class="container">
+
+  <div class="card" id="formCard">
+
+    <h2>🎯 Start Your Customer Hunt</h2>
+
+    <p>
+      Answer a few questions. Our AI will analyze your information
+      and create a personalized customer opportunity report.
+    </p>
+
+    <form id="radarForm">
+
+      <label>Business name</label>
+      <input
+        type="text"
+        id="business"
+        placeholder="e.g. Ade Furniture"
+        required
+      >
+
+      <label>What do you sell or offer?</label>
+      <textarea
+        id="offer"
+        placeholder="Tell us what your business sells or the service you provide..."
+        required
+      ></textarea>
+
+      <label>Where do you serve customers?</label>
+      <input
+        type="text"
+        id="location"
+        placeholder="e.g. Lagos, Nigeria"
+        required
+      >
+
+      <label>Who do you want as customers?</label>
+      <input
+        type="text"
+        id="customers"
+        placeholder="e.g. homeowners, students, business owners..."
+        required
+      >
+
+      <label>What is your biggest challenge?</label>
+      <select id="challenge" required>
+        <option value="">Choose one</option>
+        <option>Finding customers</option>
+        <option>Getting more sales</option>
+        <option>Marketing my business</option>
+        <option>Getting noticed online</option>
+        <option>Building trust</option>
+        <option>Automating my business</option>
+        <option>I'm not sure</option>
+      </select>
+
+      <button class="btn" type="submit">
+        🔎 FIND MY CUSTOMER OPPORTUNITIES
+      </button>
+
+    </form>
+
+    <div class="loading" id="loading">
+
+      <div class="loader"></div>
+
+      <h3>AKOLIS AI is scanning...</h3>
+
+      <p style="color:#8994a2;margin-top:8px;">
+        Looking for customer opportunities and growth ideas.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="card result" id="result">
+
+    <div class="score">
+
+      <div class="score-number" id="score">87</div>
+
+      <small>YOUR CUSTOMER OPPORTUNITY SCORE</small>
+
+    </div>
+
+    <div class="result-box">
+
+      <h3>🎯 Your strongest customer group</h3>
+
+      <p id="customerResult"></p>
+
+    </div>
+
+    <div class="result-box">
+
+      <h3>💰 Opportunity detected</h3>
+
+      <p id="opportunityResult"></p>
+
+    </div>
+
+    <div class="result-box">
+
+      <h3>📣 Recommended marketing move</h3>
+
+      <p id="marketingResult"></p>
+
+    </div>
+
+    <div class="result-box">
+
+      <h3>🚀 Your next move</h3>
+
+      <p id="nextResult"></p>
+    </div>
+
+    <div class="cta">
+
+      <h3>Want AKOLIS FUSION to help you execute it?</h3>
+
+      <p style="color:#aeb6c2;margin-top:8px;line-height:1.5;">
+        Get professional help with design, websites, AI automation,
+        affiliate marketing, digital marketing and more.
+      </p>
+
+      <a
+        class="whatsapp"
+        href="https://wa.me/"
+        target="_blank"
+      >
+        💬 TALK TO AKOLIS FUSION
+      </a>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  © AKOLIS FUSION • Powered by AKOLIS AI
+</footer>
+
+<script>
+
+const form = document.getElementById("radarForm");
+
+form.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  const business =
+    document.getElementById("business").value;
+
+  const offer =
+    document.getElementById("offer").value;
+
+  const location =
+    document.getElementById("location").value;
+
+  const customers =
+    document.getElementById("customers").value;
+
+  const challenge =
+    document.getElementById("challenge").value;
+
+  document.getElementById("formCard").querySelector("form").style.display="none";
+
+  document.getElementById("loading").style.display="block";
+
+  setTimeout(function(){
+
+    document.getElementById("loading").style.display="none";
+
+    document.getElementById("result").style.display="block";
+
+    document.getElementById("customerResult").textContent =
+      "Based on your business, " + customers +
+      " are a strong customer group to focus on in " +
+      location + ".";
+
+    document.getElementById("opportunityResult").textContent =
+      business +
+      " has an opportunity to turn your " +
+      offer +
+      " into a clear offer designed around the problems your customers are already trying to solve.";
+
+    document.getElementById("marketingResult").textContent =
+      "Create short, useful promotional content that shows the problem you solve, the result customers can expect, and a simple reason to contact you.";
+
+    document.getElementById("nextResult").textContent =
+      "Your biggest current challenge is " +
+      challenge +
+      ". Start by creating one strong offer and putting it consistently in front of your ideal customers.";
+
+  },2200);
+
+});
+
+</script>
+
+</body>
+  </html>
